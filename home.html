@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steganography Encoder/Decoder</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: rgb(255, 234, 8);
+        padding: 2%;
+      }
+      header h1 {
+        width: fit-content;
+        margin-left: 34%;
+      }
+      .page1 {
+        background-image: url("https://insightglobal.com/wp-content/uploads/2023/02/cybersecurity-hiring.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 89vh;
+      }
+      body {
+        overflow-y: hidden;
+      }
+      .converter {
+        height: 50%;
+        justify-content: center;
+        left: 38%;
+        position: absolute;
+        top: 19%;
+      }
+      #select_img,
+      #encode {
+        font-size: 30px;
+      }
+      #msg {
+        width: 60%;
+        border-radius: 10px;
+        height: 55px;
+      }
+      #decode{
+        position: absolute;
+        left: 44%;
+        font-size: 140%;
+      }
+      #encodebtn{
+        font-size: 110%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Steganography Encoder/Decoder</h1>
+    </header>
+    <div class="page1">
+      <div class="converter">
+        <form action="/encode" method="post" enctype="multipart/form-data">
+          <label for="img_file" id="select_img">Select image file:</label>
+          <input type="file" id="img_file" name="img_file" required/><br /><br />
+          <label for="msg" id="encode">Enter message to ENCODE:</label>
+          <input type="text" id="msg" name="msg" required/><br /><br />
+          <input type="submit" value="Encode" id="encodebtn"/>
+        </form>
+        <form action="/decode" method="post" enctype="multipart/form-data">
+          <label for="img_file" id="select_img">Select DECODE image file:</label>
+          <input type="file" id="img_file" name="img_file" required/><br /><br />
+          <input type="submit" value="Decode" id="decodebtn"/>
+        </form>
+      </div>
+    </div>
+    <br />
+  </body>
+</html>
