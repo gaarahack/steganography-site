@@ -8,47 +8,121 @@
       * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
       }
+
+      body {
+        font-family: Arial, sans-serif;
+        overflow-y: hidden;
+        background-color: #171717;
+        color: white;
+      }
+
       header {
-        background-color: rgb(255, 234, 8);
+        background-color: rgb(222, 144, 247);
         padding: 2%;
+        text-align: center;
       }
+
       header h1 {
-        width: fit-content;
-        margin-left: 34%;
+        font-size: 2rem;
       }
+
       .page1 {
-        background-image: url("https://insightglobal.com/wp-content/uploads/2023/02/cybersecurity-hiring.jpg");
+        background-image: url("https://wallpapercast.com/media/c59c37c2-c96f-428b-8ec0-290985476e34/d6b59c9e-4d65-4f19-8ea7-fc2a65828bd5.gif");
         background-repeat: no-repeat;
         background-size: cover;
         height: 89vh;
-      }
-      body {
-        overflow-y: hidden;
-      }
-      .converter {
-        height: 50%;
+        display: flex;
         justify-content: center;
-        left: 38%;
-        position: absolute;
-        top: 19%;
+        align-items: center;
       }
-      #select_img,
-      #encode {
-        font-size: 30px;
-      }
-      #msg {
-        width: 60%;
+
+      .converter {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
         border-radius: 10px;
-        height: 55px;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
       }
-      #decode{
-        position: absolute;
-        left: 44%;
-        font-size: 140%;
+
+      .converter label {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        display: block;
       }
-      #encodebtn{
-        font-size: 110%;
+
+      .converter input[type="file"],
+      .converter input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #171717;
+        color: white;
+      }
+
+      .converter input[type="submit"] {
+        background-color: #ff2288;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .converter input[type="submit"]:hover {
+        background-color: #e1176f;
+      }
+
+      #encodebtn,
+      #decodebtn {
+        font-size: 1.1rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+
+        .converter {
+          width: 80%;
+          padding: 1rem;
+        }
+
+        .converter label {
+          font-size: 1rem;
+        }
+
+        .converter input[type="submit"] {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .converter {
+          width: 95%;
+          padding: 0.8rem;
+        }
+
+        .converter label {
+          font-size: 0.9rem;
+        }
+
+        .converter input[type="text"],
+        .converter input[type="file"] {
+          padding: 8px;
+        }
+
+        header h1 {
+          font-size: 1.2rem;
+        }
       }
     </style>
   </head>
@@ -59,19 +133,18 @@
     <div class="page1">
       <div class="converter">
         <form action="/encode" method="post" enctype="multipart/form-data">
-          <label for="img_file" id="select_img">Select image file:</label>
-          <input type="file" id="img_file" name="img_file" required/><br /><br />
+          <label for="img_file" id="select_img">Select image file to ENCODE:</label>
+          <input type="file" id="img_file" name="img_file" required /><br /><br />
           <label for="msg" id="encode">Enter message to ENCODE:</label>
-          <input type="text" id="msg" name="msg" required/><br /><br />
-          <input type="submit" value="Encode" id="encodebtn"/>
+          <input type="text" id="msg" name="msg" required /><br /><br />
+          <input type="submit" value="Encode" id="encodebtn" />
         </form>
         <form action="/decode" method="post" enctype="multipart/form-data">
-          <label for="img_file" id="select_img">Select DECODE image file:</label>
-          <input type="file" id="img_file" name="img_file" required/><br /><br />
-          <input type="submit" value="Decode" id="decodebtn"/>
+          <label for="img_file" id="select_img">Select image file to DECODE:</label>
+          <input type="file" id="img_file" name="img_file" required /><br /><br />
+          <input type="submit" value="Decode" id="decodebtn" />
         </form>
       </div>
     </div>
-    <br />
   </body>
 </html>
